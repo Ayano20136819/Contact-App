@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactRequest;
+use App\Http\Requests\UpdateContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -39,9 +40,11 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateContactRequest $request, Contact $contact)
     {
-        //
+        $validated = $request->validated();
+        $contact->update($validated);
+        return response()->json($contact, 200);
     }
 
     /**
@@ -49,11 +52,7 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        $contact = Contact::find($contact);
-
-        if ($contact) {
-            $contact->delete();
-        }
-
+        $contact->delete();
+        return response()->json(null, 204);
     }
 }

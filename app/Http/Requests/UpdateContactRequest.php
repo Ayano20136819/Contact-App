@@ -11,7 +11,9 @@ class UpdateContactRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // TODO: Modify to check authenticated
+        // TODO: Modify to check authorised  / own the contact
+        return true;
     }
 
     /**
