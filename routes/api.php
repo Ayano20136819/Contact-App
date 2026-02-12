@@ -9,5 +9,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::apiResource('/contacts', ContactController::class);
-// index store add delete show
 

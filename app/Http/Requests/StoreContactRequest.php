@@ -14,6 +14,10 @@ class StoreContactRequest extends FormRequest
         // TODO: Modify to check authenticated
         // TODO: Modify to check authorised  / own the contact
         return true;
+
+//        $contact = $this->route('contact');
+//        return auth()->user() && $contact->user_id === auth()->id();
+
     }
 
     /**
