@@ -19,7 +19,7 @@ class ContactResource extends JsonResource
             'title'=>$this->title,
             'given_name' => $this ->given_name,
             'family_name' => $this ->family_name,
-            'full_name' => $this -> fullname(),
+            'full_name' => $this -> fullname,
             'nick_name' => $this ->nick_name,
             // no created at / updated at
         ];
